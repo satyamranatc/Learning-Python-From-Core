@@ -1,0 +1,46 @@
+class Student:
+    Eyes = 2
+
+    def __init__(self,N,C,R):
+        self.Name = N
+        self.Class = C
+        self.Roll = R
+
+    def setData(self,N,C,R):
+        self.Name = N
+        self.Class = C
+        self.Roll = R
+
+    def GetData(self):
+        print(self.Name)
+        print(self.Roll)
+        print(self.Class)
+        print("--------------")
+
+
+# S1 = Student("Ajay",12,1)
+# # S1.setData("Ajay",12,1)
+# S1.GetData()
+#
+#
+# S2 = Student("Naman",12,2)
+# S2.GetData()
+
+
+L = []
+
+while True:
+
+    Choice = int(input("press 1 For add\n 2 for Display"))
+    if Choice == 1:
+        N = input("Name: ")
+        C = int(input("Class: "))
+        R = int(input("Roll: "))
+        L.append(Student(N, C, R))
+
+    elif Choice == 2:
+        for i in L:
+            i.GetData()
+
+    else:
+        break
