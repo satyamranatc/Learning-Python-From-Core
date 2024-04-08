@@ -1,0 +1,119 @@
+class Employee:
+    def __init__(self,Name,Age,Id):
+        self.Name=Name
+        self.Age=Age
+        self.Id=Id
+
+    def display(self):
+        print("Name:",self.Name)
+        print("Age:",self.Age)
+        print("Id:",self.Id)
+        print("-----------------")
+
+
+
+EmployeesList = []
+# EmployeesList.append(Employee("Rahul",34,1))
+# EmployeesList.append(Employee("Mann",34,2))
+# EmployeesList.append(Employee("Aman",24,3))
+# EmployeesList.append(Employee("Namn",33,4))
+# for E in EmployeesList:
+#     E.display()
+
+
+
+while True:
+    Choice = int(input("Press\n1. For Add\n2. Display\n3. For Update\n4. Delete\n5. For Exit -- "))
+    if Choice == 1:
+
+        try:
+            Id = int(input("Enter Id: "))
+
+        except ValueError:
+            print("Invalid Id")
+            continue
+
+        IdNotExists = True
+
+        for E in EmployeesList:
+            if E.Id == Id:
+                print("Id Already Exist")
+                IdNotExists = False
+                break
+
+        if IdNotExists:
+            Name = input("Enter Name: ")
+            Age = input("Enter Age: ")
+            EmployeesList.append(Employee(Name,Age,Id))
+
+
+    elif Choice == 2:
+        print("**************************")
+        for E in EmployeesList:
+            E.display()
+        print("**************************")
+
+
+    elif Choice == 3:
+        try:
+            Id = int(input("Enter Id: "))
+
+        except ValueError:
+            print("Invalid Id")
+            continue
+
+        IdIndex = -1
+
+        for i in range(len(EmployeesList)):
+            if EmployeesList[i].Id == Id:
+                print("Id Already Exist")
+                IdIndex = i
+                break
+
+
+        if IdIndex != -1:
+            Name = input("Enter Name: ")
+            Age = int(input("Enter Age: "))
+            EmployeesList[IdIndex] = Employee(Name,Age,Id)
+
+        else:
+            print("Id Not Exist")
+
+
+    elif Choice == 4:
+        try:
+            Id = int(input("Enter Id: "))
+
+        except ValueError:
+            print("Invalid Id")
+            continue
+
+        IdIndex = -1
+
+        for i in range(len(EmployeesList)):
+            if EmployeesList[i].Id == Id:
+                print("Id Already Exist")
+                IdIndex = i
+                break
+
+
+        if IdIndex != -1:
+            EmployeesList.pop(IdIndex)
+
+        else:
+            print("Id Not Exist")
+
+
+
+
+
+
+    elif Choice == 5:
+        print("**************************")
+        print("Thanks")
+        print("**************************")
+        break
+    
+    
+    else:
+        print("Wrong Choice.....")
