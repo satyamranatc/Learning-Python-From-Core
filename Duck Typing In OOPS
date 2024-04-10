@@ -1,0 +1,21 @@
+class RR:
+    def Run():
+        print("Running at the Speed of 320")
+
+class Bugatti:
+    def Run():
+        print("Running at the Speed of 472")
+
+
+
+class Car:
+    def Drive(self,X):
+        X.Run() 
+
+
+Phontom = RR()
+B = Bugatti()
+
+C = Car()
+C.Drive(Phontom)
+C.Drive(B)
